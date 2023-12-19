@@ -1,17 +1,22 @@
 <h1><%= @list.name %></h1>
 <%= link_to list_path(@list), method: :delete do %>
-  <%= image_tag("effacer.png", alt: "Effacer", style: "max-width: 40px;") %>
+  <%= image_tag("effacer.png", alt: "Effacer", style: "max-width: 20px;") %>
 <% end %>
 <p>------------------------------------------------------------</p>
-<% @list.movies.each do |t| %>
-  <p><%= t.title %></p>
+<% @list.bookmarks.each do |b|%>
+  <div class="d-flex justify-content-between align-items-center">
+    <% if b.movie %>
+      <p class="mb-0"><%= b.movie.title %></p>
+      <%= button_to 'Supprimer', bookmark_path(b), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <p>Bookmark sans film <%= b.comment %></p>
+    <% end %>
+  </div>
 <% end %>
 <p>------------------------------------------------------------</p>
-
-<%= link_to "Ajouter un film", "#", data: { controller: "bookmark-form", action: "click->bookmark-form#toggleForm" }, class: "bookmark-form-link" %>
-
-<div data-bookmark-form-target="form">
-  <%= render 'bookmarks/form' %>
-</div>
 
 <%= link_to "retour aux listes", lists_path %>
+<a data-controller="bookmark-form" data-action="click->bookmark-form#toggleForm" data-bookmark-form-target="link">Ajouter un film</a>
+<div data-bookmark-form-target="form">
+<%= render 'bookmarks/form' %>
+</div>

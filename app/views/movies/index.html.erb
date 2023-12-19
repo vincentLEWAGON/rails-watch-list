@@ -1,0 +1,8 @@
+<h1>Liste des films</h1>
+
+<% @movies.each do |m|%>
+  <p><%= link_to m.title, movie_path(m) %></p>
+  <p><%=m.overview%></p>
+<% end %>
+
+<%= link_to "Revenir aux listes", lists_path %>

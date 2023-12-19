@@ -1,0 +1,28 @@
+.navbar {
+  text-align: center;
+  background-color: #333;
+  height: 30vh;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar h1 {
+  font-weight: bold;
+  color: white;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar li {
+  color: white;
+}

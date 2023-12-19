@@ -1,6 +1,7 @@
 import { Application } from "@hotwired/stimulus"
-//= require rails-ujs
-//= require bookmarks
+import Rails from "@rails/ujs"
+
+Rails.start()
 
 const application = Application.start()
 
