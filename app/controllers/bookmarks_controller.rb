@@ -3,21 +3,16 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @bookmark = Bookmark.new
     @list = List.find(params[:list_id])
+    @bookmark = Bookmark.new
   end
 
   def create
     @list = List.find(params[:list_id])
-    @movie = Movie.find(params[:bookmark][:movie_id])
-    @bookmark = @list.bookmarks.find_by(movie: @movie)
-
-    @bookmark.destroy if @bookmark
-
-    @bookmark = @list.bookmarks.build(bookmark_params)
-
+    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.list = @list
     if @bookmark.save
-      redirect_to @list, notice: 'Bookmark a été créé avec succès.'
+      redirect_to list_path(@list), notice: 'Bookmark a été créé avec succès.'
     else
       puts @bookmark.errors.full_messages
       render :new

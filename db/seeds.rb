@@ -13,11 +13,23 @@ Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells
 Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
 
 require 'faker'
-50.times do
-  Movie.create(
-    title: Faker::Movie.title,
-    overview: Faker::Movie.quote,
-    rating: rand(0..10)
-  )
+10.times do
+  list = List.create(name: "La liste de #{Faker::Name.first_name}")
+  10.times do
+    movie = Movie.create(
+      title: Faker::Movie.title,
+      overview: Faker::Movie.quote,
+      rating: rand(0..10)
+    )
+    if movie.save
+      Bookmark.create(
+        movie: movie,
+        list: list,
+        comment: Faker::Lorem.sentence
+      )
+    else
+      puts "Failed to create movie: #{movie.errors.full_messages.join(", ")}"
+    end
+  end
   puts 'movie created'
 end
