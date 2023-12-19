@@ -1,7 +1,10 @@
-<nav class="navbar">
-<H1>Mon app de films</H1>
-  <%= link_to 'Accueil', root_path %>
-  <%= link_to 'Listes', lists_path %>
-  <%= link_to 'Films', movies_path %>
-  <!-- Ajoutez d'autres liens ici selon vos besoins -->
-</nav>
+<div class="navbar">
+  <h1>Mon app ciména</h1>
+  <div class="container">
+   -
+      <h3><%= link_to "Créer une liste", new_list_path %></h3>
+      <h3><%= link_to "Voir la liste des films", movies_path %></h3>
+      <h3><%= link_to "retour aux listes", lists_path %></h3>
+
+  </div>
+</div>

@@ -15,7 +15,7 @@
 <% end %>
 <p>------------------------------------------------------------</p>
 
-<%= link_to "retour aux listes", lists_path %>
+
 <a data-controller="bookmark-form" data-action="click->bookmark-form#toggleForm" data-bookmark-form-target="link">Ajouter un film</a>
 <div data-bookmark-form-target="form">
 <%= render 'bookmarks/form' %>

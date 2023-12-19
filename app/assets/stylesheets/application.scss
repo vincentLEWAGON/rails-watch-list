@@ -11,7 +11,29 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  background-color: #010101;
+  background-image: url('cine.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .container {
-  width: 80%;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+  gap: 10px;
+  padding-top: 50px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(80vw, 1fr));
+  }
 }

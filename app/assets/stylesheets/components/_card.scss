@@ -1,0 +1,21 @@
+.card {
+  width: 20vw;
+  height: 10vh;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // autres styles pour la carte
+  p {
+    color: whitesmoke;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 80vw;
+    height: 20vh;
+  }
+}
