@@ -1,0 +1,17 @@
+<h1><%= @list.name %></h1>
+<%= link_to list_path(@list), method: :delete do %>
+  <%= image_tag("effacer.png", alt: "Effacer", style: "max-width: 40px;") %>
+<% end %>
+<p>------------------------------------------------------------</p>
+<% @list.movies.each do |t| %>
+  <p><%= t.title %></p>
+<% end %>
+<p>------------------------------------------------------------</p>
+
+<%= link_to "Ajouter un film", "#", data: { controller: "bookmark-form", action: "click->bookmark-form#toggleForm" }, class: "bookmark-form-link" %>
+
+<div data-bookmark-form-target="form">
+  <%= render 'bookmarks/form' %>
+</div>
+
+<%= link_to "retour aux listes", lists_path %>
